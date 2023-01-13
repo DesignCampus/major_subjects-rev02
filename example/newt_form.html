@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Newt Form App</title>
+	<style>
+		label {
+			margin-right: .5rem;
+		}
+		form div {
+			margin-top: 1rem;
+		}
+		form button {
+			margin-top: 1rem;
+			border: 1px solid #333;
+		}
+	</style>
+</head>
+
+<body>
+
+
+<div class="wrapper">
+	<h1>Newt Form Appのテスト</h1>
+	<form method="POST" action="https://test-731637.form.newt.so/v1/jCdwaImj0">
+		<div>
+			<label for="name">お名前<span>(必須)</span></label><input type="text" name="お名前" id="name" required>
+		</div>
+		<div>
+			<label for="email">メアド<span>(必須)</span></label><input type="email" name="メアド" id="email" pattern=".+\.[a-zA-Z0-9][a-zA-Z0-9-]{0,61}[a-zA-Z0-9]" required>
+		</div>
+		<div>
+			<label for="body">本文</label><textarea name="本文" id="body"></textarea>
+		</div>
+		<button type="submit">送信</button>
+	</form>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>おみくじDEMO</title>
+	<style>
+		*:where(:not(iframe,canvas,img,svg,video):not(svg *,symbol *)){all:unset;display:revert}*,*::before,*::after{box-sizing:border-box}a,button{cursor:revert}ol,ul,menu{list-style:none}img{max-width:100%}table{border-collapse:collapse}textarea{white-space:revert}meter{-webkit-appearance:revert;appearance:revert}::placeholder{color:unset}:where([hidden]){display:none}:where([contenteditable]){-moz-user-modify:read-write;-webkit-user-modify:read-write;overflow-wrap:break-word;-webkit-line-break:after-white-space}:where([draggable="true"]){-webkit-user-drag:element}
+	</style>
+	<style>
+		body {
+			background: #F5EBD3;
+		}
+		.wrapper {
+			max-width: 320px;
+			margin: auto;
+			text-align: center;
+		}
+		.wrapper h1 {
+			margin-top: 2rem;
+			color: #733535;
+			font-weight: bold;
+		}
+		.mainView {
+			margin-top: 1rem;
+			padding: 2rem;
+			background: #FFF;
+			font-size: 1.6rem;
+		}
+		.runButton {
+			margin-top: 1rem;
+			padding: .5rem 1.5rem;
+			background-color: #A7C9A9;
+			box-shadow: 1px 1px 3px 0 #7FA394;
+			border-radius: 9999px;
+			font-size: 1.2rem;
+			font-weight: bold;
+		}
+		.runButton:hover {
+			filter: contrast(120%);
+		}
+		.runButton:active {
+			box-shadow: none;
+		}
+	</style>
+</head>
+
+<body>
+
+
+<div class="wrapper">
+	<h1>おみくじ</h1>
+	<div id="js-mainView" class="mainView">ボタンを押してね</div>
+	<button id="js-runButton" class="runButton">占う</button>
+</div>
+
+<script>
+	document.addEventListener("DOMContentLoaded", ()=> {
+		const mainView = document.getElementById("js-mainView");
+		const runButton = document.getElementById("js-runButton");
+		const options = [
+			"凶",
+			"小吉",
+			"中吉",
+			"大吉"
+		]
+
+		runButton.addEventListener("click", ()=> {
+			let result;
+			let randomNumber = Math.floor(Math.random() * 8);
+			if (randomNumber == 0) {
+				result = options[0];
+			} else if (randomNumber >= 1 && randomNumber < 3) {
+				result = options[1];
+			} else if (randomNumber >= 3 && randomNumber < 5) {
+				result = options[2];
+			} else {
+				result = options[3];
+			}
+			mainView.textContent = result;
+		});
+
+
+	});
+</script>
+
+</body>
+
+</html>
