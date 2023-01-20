@@ -246,6 +246,34 @@ https://api.aoikujira.com/
 
 ---
 
+## 実技
+
+--
+
+### ページのトップに戻るボタン
+<small>サンプルファイル  
+example/js.html</small>
+
+<small>以前の前期  
+example/js-0-c.html</small>
+
+<small>以前の後期  
+example/js-0-m.html</small>
+
+--
+
+### おみくじの解説
+<small>サンプルファイル  
+example/omikuji.html</small>
+
+--
+
+### スクロールの監視
+<small>サンプルファイル  
+example/intersection_observer.html</small>
+
+---
+
 ## 実習
 
 --

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>JavaScript</title>
+	<style>
+		body {
+			  background-image: linear-gradient(#fff, #A7C9A9);
+		}
+		.heightAdjust {
+			height: 2000px;
+		}
+		.backToTop {
+			display: none;
+			position: fixed;
+			bottom: 40px;
+			right: 40px;
+		}
+		.backToTop.is-show {
+			display: inline-block;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="heightAdjust">
+			<p>一番上</p>
+		</div>
+		<button id="js-backToTop" class="backToTop">ページの上にスクロール</button>
+	</div>
+
+	<script>
+		// 変数
+		const pagetopBtn = document.querySelector('#js-backToTop');
+
+		/**
+		 * ページのトップに戻る
+		 * 補足：() => {}は、function(){}のシンタックスシュガー（別の記法）のようなもの。詳細は後期講義にて
+		 */
+		pagetopBtn.addEventListener('click', () => {
+			window.scrollTo({
+				top: 0,
+				behavior: 'smooth'
+			});
+		});
+
+		/* ANYの教材
+		let topBtn = $('#scroll-top');
+		topBtn.hide();
+
+		topBtn.click(function (event) {
+			event.preventDefault();
+			$('body,html').animate({
+				scrollTop: 0
+			}, 500);
+		});
+		*/
+
+		/**
+		 * トップに戻るボタンの表示非表示
+		 */
+		document.addEventListener('scroll', () => {
+			if (window.scrollY > 400) {
+				pagetopBtn.classList.add('is-show');
+			} else {
+				pagetopBtn.classList.remove('is-show');
+			}
+		});
+
+		/* ANYの教材
+		$(window).scroll(function () {
+			if ($(this).scrollTop() > 1000) {
+				topBtn.fadeIn();
+			} else {
+				topBtn.fadeOut();
+			}
+		});
+		*/
+
+	</script>
+</body>
+
+</html>
